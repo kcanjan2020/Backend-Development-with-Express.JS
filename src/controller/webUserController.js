@@ -1,6 +1,7 @@
 import e from "express";
 import { Webuser } from "../model/model.js";
 import bcrypt from "bcrypt";
+import { sendMail } from "../utils/sendMail.js";
 
 export let createWebuser = async (req, res) => {
   let data = req.body;
@@ -8,7 +9,7 @@ export let createWebuser = async (req, res) => {
   //console.log(data); // {ame: 'Anjan',age: 24 email: 'kcanjan2020@gmail.com',password: 'Password@123',phoneNumber: 9866904450, } => object
   try {
     let password = data.password;
-    console.log(password);
+    // console.log(password);
     let hasPassword = await bcrypt.hash(password, 10); // 10 means String hashing 2^10 times
     //console.log(hasPassword);
     data = {
@@ -16,6 +17,13 @@ export let createWebuser = async (req, res) => {
       password: hasPassword,
     };
     let result = await Webuser.create(data);
+    //Send mail from google smtp
+    await sendMail({
+      from: '"Hello Display" <kcanjan2020@gmail.com>', //it is used to display text before email address
+      to: [req.body.email], //=>send to specific mail
+      subject: "My first system email",
+      html: `<h1>Hello world!</h1>`,
+    });
     res.json({
       success: true,
       message: "Webuser Created successfully",
