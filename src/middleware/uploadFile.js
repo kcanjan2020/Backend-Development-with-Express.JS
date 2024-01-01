@@ -37,6 +37,10 @@ let fileFilter = (req, file, cb) => {
     ".png",
     ".svg",
     ".doc",
+    ".docx",
+    ".xls",
+    ".xlsx",
+    ".txt",
     ".pdf",
     ".mp4",
     ".PNG",
@@ -44,7 +48,7 @@ let fileFilter = (req, file, cb) => {
   ];
 
   let originalName = file.originalname;
-  let originalExtension = path.extname(originalName); //note path module is inbuilt module(package) of node js (ie no need to install path package)
+  let originalExtension = path.extname(originalName); //note: path module is inbuilt module(package) of node js (ie no need to install path package)
   let isValidExtension = validExtensions.includes(originalExtension);
 
   if (isValidExtension) {
