@@ -1,0 +1,43 @@
+==> mongoDb store data in array of objects
+   ->eg 
+    Student[
+        {
+            "_id": "6562b050e5abb022788d1610",
+            "name": "Anjan",
+            "age": 2567,
+            "isMarried": false,
+        },
+        {
+            "_id": "6562bb14c3b788c819cd8c1d",
+            "name": "Sita",
+            "age": 24,
+            "isMarried": false,
+        }
+    ]
+Process:
+
+==> 1. Design Schema ()
+     ->Defining object is call Schema
+     -> let StudentSchema=Schema({object of objects})
+==> 2. Design Model  (Model==>Table_Name like SQl Server)
+      -> Defining array is called Model
+      -> model used modelName (ArrayName) and Schema
+      -> model name be singular and firstLetter is capital
+      ->eg. let Student=model("Student",Schema)
+               (Student)     (Student) must be same(match)
+
+==>3. Design Controller
+	->
+==>4. Design Router 
+     --> Router use model for (CRUD) operation
+     
+==>5.index.js
+
+
+==>.env
+->make .env at root directory   
+->it is used to define variable
+->ho to define variable in .env
+-> use uppercase convention
+->while giving value do not use double quotes
+-> every thing is string at .env

@@ -1,0 +1,41 @@
+==>Database 
+    -> mongoDb store  data in array of objects
+
+=>CRUD Operation
+ 1.Create -> create(data)
+ 2.Read all -> find({})
+ 3.Read Specific -> findById(id)
+ 4.Update Specific -> findByIdAndUpdate(id,data)
+ 5.Delete Specific -> findByIdAndDelete(id)
+
+ ==>.env 
+->make .env at root directory   
+->it is used to define variable
+->how to define variable in .env
+-> use uppercase convention
+->while giving value do not use double quotes
+-> every thing is string at .env
+-> we need to install package dotenv=> npm i dotenv
+-> used config() every time while used .env
+->config()-> used to get variable from .env
+
+==>.gitignore
+->make .gitignore at root directory
+
+/* ==> Generate hasPassword
+-->we need to download bcrypt package =>npm i bcrypt  
+
+let password = "Password@123";
+let hasPassword = await bcrypt.hash(password, 10); //10 means=> string is bcrypt 2^10 times
+console.log(hasPassword);
+
+==>login (matchPassword)
+let isValidPassword = await bcrypt.compare(password, hasPassword);
+console.log(isValidPassword);
+*/
+
+
+
+
+
+
